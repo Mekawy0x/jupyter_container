@@ -1,0 +1,16 @@
+FROM python
+
+COPY . /jupyter_container
+
+WORKDIR /jupyter_container
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 8888
+
+ENV NAME World
+
+CMD ["jupyter", "notebook", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root"]
+
+
+
